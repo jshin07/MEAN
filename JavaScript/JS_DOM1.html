@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JS DOM I</title>
+    </head>
+    <body>
+
+    <ul id="main"></ul>
+
+        <script>
+
+        function appendList(array, id){
+            for(let i =0; i< array.length; i++){
+                let li = document.createElement("li");
+                li.innerHTML = array[i];
+                document.getElementById(id).appendChild(li);
+            }
+        };
+
+        let students = ["Jeff", "Jenny", "Javier", "Joslyn", "Joe", "Jane", "Django"];
+        let target_id = "main";
+        appendList(students, target_id);
+
+        // function superAppend(array, element, id){
+        //     for(let i=0; i< array.length; i++){
+        //         let el ="" + element;
+        //         el.innerHTML = array[i];
+        //         document.getElementById(id).appendChild(el);
+        //     }
+        // };
+
+        </script>
+    </body>
+</html>
