@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Hunting Github</title>
+        <script src="http://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id= "user">
+            <input type = "submit" id="user" value= "Find" name="user" >
+        </div>
+
+        <p id ="info"></p>
+
+        </div>
+
+    <script>
+
+    var button = document.getElementById("user");
+    button.addEventListener("click", whatToDoOnClick);
+
+    function whatToDoOnClick(){
+        $.get("https://api.github.com/users/jshin07", displayName)
+        function displayName(data){
+            console.log(data);
+            document.getElementById("info").innerHTML = data.login;
+        }
+    }
+
+
+
+
+    </script>
+
+    </body>
+</html>

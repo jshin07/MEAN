@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Dojo Query</title>
+    </head>
+    <body>
+        <script>
+
+
+            document.getElementById("dojo"); // (makes a DOMobject accessible to JavaScript) takes in one parameter which is the id for a particular element
+            DOMobject.addEventListener("click", (function(){console.log("something")})) //takes in 2 parameters 1) the event 2) the callback function (Note that this method must be run on an html element)
+
+
+
+            $Dojo("someIdForSomeButton").click(function() { console.log("The button was clicked!") });
+            $Dojo("someOtherIdForSomeOtherButton").hover(function() { console.log("The button was hovered on!") });
+
+        </script>
+
+        <input type= "button" type="submit" id="dojo" value= "Dojo Query">
+
+    </body>
+</html>
