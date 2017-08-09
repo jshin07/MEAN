@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mongoose Dashboard</title>
+    </head>
+    <body>
+        <h1>Edit your <%= mong[0].name %> </h1>
+        Current Name:  <%= mong[0].name %><br>
+        Current Description:  <%= mong[0].description %><br>
+        <form action="/mongooses/<%= mong[0].id %>" method="post">
+            <br>New Name:<br> <input type="text" name="name">
+            <br>New Description:<br>
+            <textarea name="description" id="description" cols="30" rows="10"></textarea><br>
+            <input type="submit" value="Update the Description">
+        </form><br>
+
+        <a href= "/"> Back </a>
+
+    </body>
+</html>

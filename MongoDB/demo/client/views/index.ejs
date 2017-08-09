@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>students</title>
+    </head>
+    <body>
+        <!-- <%= students %> -->
+
+        <% if(typeof errors != "undefined") { %>
+            <% for (var x in errors) { %>
+             <h3><%= errors[x].message %></h3>
+            <% } %>
+        <% } %>
+
+        <table border ="1">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+            <% for(var student of students){ %>
+            <tr>
+                <td><%= student.name %></td>
+                <td><%= student.email %></td>
+                <td><%= student.age %></td>
+            </tr>
+            <% } %>
+        </table>
+
+        <form action="/students" method="post">
+            <input type="text" name = "name" placeholder="Name">
+            <input type="text" name = "email" placeholder="Email">
+            <input type="number" name = "age" placeholder="Age">
+            <input type="submit" value="SUBMIT">
+        </form>
+
+
+    </body>
+</html>
