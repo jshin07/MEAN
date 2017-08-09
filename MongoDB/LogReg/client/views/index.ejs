@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login and Registrations</title>
+    </head>
+    <body>
+        <h1>Login and Registrations</h1>
+
+
+    <%= user %>
+
+
+        <h3>Registrations</h3>
+        <form action="/register" method = "post">
+            First Name: <input type="text" name="first_name"><br>
+            Last Name: <input type="text" name="last_name"><br>
+            Email: <input type="text" name="email"><br>
+            Password: <input type="password" name="password"><br>
+            <em>Password must be at least 8 characters with 1 number, uppercase and special character.</em><br>
+            Password Confirm: <input type="password" name="password_conf"><br>
+            Birthday: <input type="date" name= "birthday"><br>
+            <input type="submit" value= "Register!">
+        </form>
+
+        <h3>Login</h3>
+        <form action="/login" method = "post">
+            Email: <input type="text" name="email"><br>
+            Password: <input type="password" name="password"><br>
+            <input type="submit" value= "Login!">
+        </form>
+
+    </body>
+</html>
