@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+    <div class= "container">
+        <h1>{{title}}</h1>
+
+        <h4 *ngIf= "current">
+            Thank you for registering with us, {{current.firstName}}. We just sent you a confirmation email at {{current.email}}, and we will send all mail to {{current.street}}, {{current.unit}} {{current.city}} {{current.state}}. Have a wonderful day!
+        </h4>
+
+        <h3>Account Information</h3>
+
+        <form (submit) = "onSubmit()" #formData="ngForm">
+            <div class= 'form-group'>
+                <label for="firstName">*First Name: </label>            
+                    <input type="text" 
+                            name="firstName"  
+                            required 
+                            [(ngModel)] = "user.firstName" 
+                            #firstName="ngModel" 
+                            class="form-control">
+                    <span *ngIf= "!firstName.valid"> First Name is required</span>
+            </div><br>
+
+            <div class= 'form-group'>
+                <label for="lastName">*Last Name: </label>   
+                    <input type="text" 
+                            name="lastName" 
+                            required 
+                            [(ngModel)] = "user.lastName" 
+                            #lastName= "ngModel"
+                            class="form-control">
+                    <span *ngIf= "!lastName.valid"> Last Name is required</span>
+            </div><br>      
+
+            <div class= 'form-group'>
+                <label for="email">*Email: </label>   
+                    <input type="text" 
+                            name="email" 
+                            pattern ="[^@]+@[^@]+\.[a-zA-Z]{2,}" 
+                            [(ngModel)] = "user.email" 
+                            #email= "ngModel"
+                            class="form-control">
+                <span *ngIf= "!email.valid"> Email must be valid</span>
+            </div><br>  
+
+            <div class= 'form-group'> 
+                <label for="password">*Password: </label>  
+                    <input type="password" 
+                            name="password" 
+                            minlength = "8" 
+                            [(ngModel)]= "user.password" 
+                            #password= "ngModel"
+                            class="form-control">
+                <span *ngIf= "!password.valid"> Password must be at least 8 characters long</span>
+            </div><br>
+
+            <div class= 'form-group'>
+                <label for="paswordConfirmation">*Password Confirmaion: </label>  
+                    <input type="password" 
+                            name="passwordConfirmation" 
+                            [(ngModel)]= "user.passwordConfirmation" 
+                            #passwordConfirmation= "ngModel"
+                            class="form-control">
+                    <span *ngIf= "user.password != user.passwordConfirmation">Please enter password again</span>
+            </div><br>    
+
+            <div class= 'form-group'>
+                <label for="street">*Street Address: </label>  
+                    <input type="text" 
+                            name="street" 
+                            required 
+                            [(ngModel)]= "user.street" 
+                            #street= "ngModel"
+                            class="form-control">
+                <span *ngIf= "!street.valid"> Street address is required</span>
+            </div><br>  
+
+            <div class= 'form-group'>
+                <label for="unit">Unit/ Apt #:  </label>  
+                    <input type="text" 
+                            name="unit" 
+                            [(ngModel)] = "user.unit" 
+                            #unit= "ngModel"
+                            class="form-control">
+            </div><br>
+
+            <div class= 'form-group'> 
+                <label for="city">*City:  </label>      
+                    <input type="text" 
+                            name="city" 
+                            required 
+                            [(ngModel)] = "user.city" 
+                            #city= "ngModel"
+                            class="form-control">
+                <span *ngIf= "!city.valid"> City is required</span>
+            </div><br>
+
+            <div class= 'form-group'>
+                <label for="state">*State:  </label>    
+                    <select name="state" [(ngModel)] = "user.state" #state= "ngModel" class="form-control" >
+                        <option *ngFor= "let state of states" >{{state}}</option>
+                    </select><span *ngIf= "!state.valid"> State is required</span>
+            </div><br>
+
+            <div class= 'form-group'>
+                <label for="lucky">*I'm feeling lucky:  </label> 
+                    <input type="radio" 
+                            name="lucky" 
+                            value="Yes" 
+                            required 
+                            [(ngModel)] = "user.lucky" 
+                            #lucky= "ngModel" > YES! 
+                
+                    <input type="radio" 
+                            name="lucky" 
+                            value="No" 
+                            [(ngModel)] = "user.lucky" 
+                            #lucky= "ngModel"> NO!
+
+                <span *ngIf= "!lucky.valid"> Choosing how you feel is required</span>
+                </div><br><br>
+
+            <!-- <input type="submit" value= "Register" [disabled]= "formData.invalid"> -->
+            <input type="submit" value= "Register" class="btn btn-default">
+
+        </form>
+        <br>
+
+
+    </div>
+    </body>
+</html>
