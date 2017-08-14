@@ -1,0 +1,16 @@
+body {
+    width: 47%;
+    background-color: lightblue;
+    margin: 20px;
+    border: solid 3px black;
+    display: inline-block;
+}
+
+h3 {
+    margin: 20px
+}
+
+p {
+    margin: 10px;   
+}
+
