@@ -1,0 +1,20 @@
+<form id="user-form" #userform= "ngForm" (submit) ="formSubmitted()">
+    <input
+    type="text"
+    name= "email"
+    [(ngModel)]= "user.email"
+    #email = "ngModel"
+    (click)= "valueChanged(user.email)">
+
+    <input
+    type="text"
+    name= "name"
+    [(ngModel)] = "user.name">
+
+    <input
+    type="password"
+    name= "password"
+    [(ngModel)] = "user.password">
+
+    <input type="submit"  value="SUBMIT">
+</form>

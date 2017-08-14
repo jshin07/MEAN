@@ -1,0 +1,6 @@
+<div>
+    <p *ngFor= "let user of users; let i= index">
+        <span *ngIf=" i % 2 ==0" style= "background: silver">{{user.name + user.password + user.email}}</span>
+        <span *ngIf=" i % 2 !== 0" style= "background: yellow">{{user.name + user.password + user.email}}</span>
+    </p>
+</div>

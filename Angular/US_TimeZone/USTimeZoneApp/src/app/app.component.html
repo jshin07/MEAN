@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>US Time Zone Display</title>
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+
+        <button (click)= 'bool =true'>PST</button>
+        <button (click)= 'bool =true'>MST</button>
+        <button (click)= 'bool =true'>CST</button>
+        <button (click)= 'bool =true'>EST</button>
+        <button (click)= 'bool =false'>Clear</button> <br><br>
+
+        <h3 *ngIf= 'bool'>{{currentTime | date:"medium"}}</h3>
+        {{currentTime | date: 'MMM dd, yyyy, h:mm a'}}<br>
+        {{currentTime | date: 'medium' :'+1200'}}<br>
+        {{currentTime | date: format: timezone: +0430}}<br>
+
+    </body>
+</html>
