@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Power Levels</title>
+</head>
+<body>
+  <h4>{{title}}</h4>
+  <form (submit) = "onSubmit(powerLevel)" #formData="ngForm">
+    <h3>Initial Power Level: <input type="number" name= "number" min= "0" max= "100" [(ngModel)] ="powerLevel" #power= "ngModel" ></h3>
+    <span>Please put an initial power between 1-100</span><br><br>
+    <input type="submit" value = "Calculate Powers">
+  </form>
+
+<app-human [p]= "p" mult= 1 title="Human"></app-human>
+<app-saiyan [p]= "p" mult= 10></app-saiyan>
+<app-super-saiyan [p]= "p" mult= 90></app-super-saiyan>
+<app-super-saiyan-two [p]= "p" mult= 150></app-super-saiyan-two>
+<app-super-saiyan-three [p]= "p" mult= 250></app-super-saiyan-three>
+<app-super-saiyan-four [p]= "p" mult= 500></app-super-saiyan-four>
+
+</body>
+</html>
