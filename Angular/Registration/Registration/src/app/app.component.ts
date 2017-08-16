@@ -16,11 +16,12 @@ export class AppComponent {
   current= null;
 
   onSubmit(){
+    console.log(this.user)
     this.current = this.user; 
     this.users.push(this.user);
     console.log(this.user);
     this.user = new User();
     console.log(this.users);
     }
-
+// ?
 }

@@ -1,0 +1,18 @@
+<div class= "container">
+  <h1>Quotes List</h1>
+
+  <div class= "box" *ngFor="let quote of quotes, let idx= index">
+      <p> "{{quote.text}}"<br><br>
+      - {{quote.author}} </p><br>
+
+      <h4>Current Vote: {{quote.vote}}</h4>
+      
+       <button (click) = "voteUp(idx)">Vote Up</button>
+       <button (click) = "voteDown(idx)">Vote Down</button>
+       <button (click) = "delete(idx)">Delete</button>
+
+  </div>
+
+
+
+</div>
