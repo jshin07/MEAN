@@ -16,7 +16,7 @@ export class BikesComponent implements OnInit {
   newlist;
 
   
-  // @Output() bikeDeleted:EventEmitter<String> = new EventEmitter();
+  @Output() bikeDeleted:EventEmitter<String> = new EventEmitter();
 
   constructor(private _bikeService: BicycleService, private _router: Router) { }
 
@@ -50,8 +50,7 @@ export class BikesComponent implements OnInit {
     this._bikeService.destroy(id)
     .then ( data => {
       console.log(data);
-      // this.newlist= this._bikeService.allBikes();
-      // this.allBikes= this.newlist;
+      this.bikeDeleted.emit("true");
     })
     .catch (err => {
       console.log(err)

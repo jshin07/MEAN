@@ -42,6 +42,7 @@ export class ListingsComponent implements OnInit {
     .catch( err => {
       console.log(err);
     })
+    this.bike= new Bicycle();
   }
 
 }

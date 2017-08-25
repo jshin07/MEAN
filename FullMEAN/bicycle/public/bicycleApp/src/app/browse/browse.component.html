@@ -14,16 +14,23 @@
 
 
 
-<div *ngIf= "answer"> 
+<div *ngIf= "answer" > 
   <div *ngFor= "let a of answer">
+    <h4>
       {{a.image}}<br>
       {{a.title}}<br>
       {{a.description}}<br>
       {{a.price}}<br>
       {{a.location}}<br>
+    </h4>
+      <div *ngIf = "a.user_id == currentUser.userId">
+        <button (click)= "delete(a._id)">DELETE</button>  <br>
+        <!-- EITHER INPUT/OUTPUT NEEDED FOR DELETE WITH EVENTLISTENER OR PUT DELETE FUNCTION -->
+        <button><a [routerLink]="['/update', a._id]" >UPDATE</a> </button>
+      </div>
       <hr>
   </div>
 </div>
 
-<app-bikes [allBikes] = "allBikes"></app-bikes>
+<app-bikes [allBikes] = "allBikes" (bikeDeleted)= "getBikes()"></app-bikes>
     

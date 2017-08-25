@@ -1,3 +1,4 @@
+import {Router} from '@angular/router';
 import {Bicycle} from '../bicycle';
 import {BicycleService} from '../bicycle.service';
 import { Component, OnInit, Input} from '@angular/core';
@@ -12,15 +13,20 @@ export class BrowseComponent implements OnInit {
   allBikes=[];
   query="";
   answer=[];
+  currentUser={};
 
 
-  constructor(private _bikeService: BicycleService ) { }
+  constructor(private _bikeService: BicycleService, private _router: Router ) { }
 
   ngOnInit() {
-    this._bikeService.allBikes()
-    .then ( data => {
-      console.log(data);
-      this.allBikes = data;
+    this.getBikes();
+ 
+    this._bikeService.currentUser()
+    .then (data => {
+      if (data.error == "not in session"){
+        this._router.navigate(['/'])
+      }
+      this.currentUser = data;
     })
     .catch( err => {
       console.log(err);
@@ -36,6 +42,16 @@ export class BrowseComponent implements OnInit {
     })
   }
 
+  getBikes(){
+    this._bikeService.allBikes()
+    .then ( data => {
+      console.log(data);
+      this.allBikes = data;
+    })
+    .catch( err => {
+      console.log(err);
+    })
+  }
 
 
 }
